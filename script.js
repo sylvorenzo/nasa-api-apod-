@@ -12,12 +12,16 @@ nasaBtn.addEventListener('click',async ()=>{
         if(response.status === 200){
 
             let data = await response.json();
-            console.log(data.explanation);
-            let htmlSegment = `<div class="nasa-image">
-            <img src="${data.url}" >
-            <h2>${data.explanation}</h2>
+            console.log(data);
+            let htmlSegment = `
+            <section class="api-container">
+            <h2>${data.title}</h2>
+            <div class="api-data">
+            <img src="${data.url}" class="nasa-image" >
+            <p>${data.explanation}</p>
             
-        </div>`
+        </div>
+        </section>`
         section.innerHTML = htmlSegment;
         }
 
